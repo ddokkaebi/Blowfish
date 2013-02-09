@@ -230,10 +230,12 @@ namespace {
     int GCD(int larger, int smaller)
     {
         int gcd = smaller;
-        int gcd_next = gcd;
+        int gcd_prev = larger;
+        int gcd_next;
         
-        while ((gcd_next = larger % gcd) != 0)
+        while ((gcd_next = gcd_prev % gcd) != 0)
         {
+            gcd_prev = gcd;
             gcd = gcd_next;
         }
         
